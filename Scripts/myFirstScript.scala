@@ -50,7 +50,7 @@ driver.findElementByName("identifier").sendKeys(username)
 driver.findElementByClassName("CwaK9").click() 
 println("\n *** username entered... ***")
 //enter password
-var password = ""
+var password = "Your Password"
 driver.findElementByName("password").sendKeys(password)
 driver.findElementByClassName("CwaK9").click()
 
