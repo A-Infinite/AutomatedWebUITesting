@@ -25,7 +25,7 @@ println("\n *** Sign in dialog box opens... ***")
 
 
 //enter emailid
-var username = "arushi131.bhatt@gmail.com"
+var username = "Your username"
 driver.findElementById("login_hint").sendKeys(username)
 println("\n *** emailid is entered... ***")
 
