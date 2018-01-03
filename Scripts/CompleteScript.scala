@@ -5,9 +5,6 @@ import org.openqa.selenium.chrome
 import org.openqa.selenium.OutputType
 import org.apache.commons.io.FileUtils
 
-
-
-
 //define immutable value
 val driver = new chrome.ChromeDriver
 println("\n *** Chrome Driver Instantiated... ***") 
@@ -15,9 +12,9 @@ println("\n *** Chrome Driver Instantiated... ***")
 // Navigate to URL
 var url = "https://3.basecamp.com"
 driver.get(url) 
+
 //driver.Navigate(url)
 println("\n *** Now we are on Basecamp Homepage...***") 
-
 
 //maximize the window 
 driver.manage().window().maximize() 
@@ -40,8 +37,6 @@ var username = "YOUR USERNAME"
 driver.findElementById("login_hint").sendKeys(username)
 println("\n *** emailid is entered... ***")
 
-
-
 driver.findElementByName("commit").click()
 println("\n *** Login button is clicked... ***")
 try{
@@ -60,13 +55,11 @@ var arr = driver.getWindowHandles().toArray
 driver.switchTo().window(arr(1).toString) 
 println("\n *** Now we are on new Google Signin Window... ***")
 
-
 //On New window
 //enter username 
 driver.findElementByName("identifier").sendKeys(username)
 driver.findElementByClassName("CwaK9").click() 
 println("\n *** username entered... ***")
-
 
 var screenshotFile = driver.getScreenshotAs(OutputType.FILE); 
 FileUtils.moveFile(screenshotFile, new java.io.File("SNAP1.png")); 
@@ -74,26 +67,20 @@ println("\n****   Screenshot 1 taken ***** ")
 
 Thread.sleep(3000)
 //enter password
-
-
-
 var password = "YOUR PASSWORD"
-
-
 driver.findElementByXPath("//*[@id=\"password\"]/div[1]/div/div[1]/input").sendKeys(password)
 
 Thread.sleep(3000)
+//Sign In
 driver.findElementByClassName("CwaK9").click()
 
 Thread.sleep(3000)
-
 println("\n *** Successfully Logged In Basecamp.. ***")
 
 Thread.sleep(5000)
 
 driver.switchTo().window(arr(0).toString)
 driver.executeScript("window.scrollBy(0,1000)", ""); 
-
 
 screenshotFile = driver.getScreenshotAs(OutputType.FILE); 
 FileUtils.moveFile(screenshotFile, new java.io.File("SNAP2.png")); 
@@ -105,6 +92,7 @@ println("\n****   Screenshot 2 taken ***** ")
 
 //*************************************************************************************************
 //SCHEDULE
+
 //Selecting a Project
 driver.findElementById("bucket_5031106_card").click()
 println("\nEntered the Project")
@@ -178,10 +166,8 @@ println("\nTyping Message...")
 
 Thread.sleep(1000)
 
-
-//KeyBoard Keys
+// For keyboard Keys
 import org.openqa.selenium.Keys
-
 
 screenshotFile = driver.getScreenshotAs(OutputType.FILE); 
 FileUtils.moveFile(screenshotFile, new java.io.File("SNAP4.png")); 
@@ -194,14 +180,10 @@ println("\nMessage sent")
 Thread.sleep(1000)
 
 //Going back to Project area
-
 println("\nGoing back to Dashboard")
 driver.findElementByXPath("//*[@id=\"my_navigation\"]/div/ul[1]/li[1]/a").click()
 
-
 Thread.sleep(5000)
 
-//import scala.collection.JavaConverters. 
 println("\nClosing the driver")
 driver.close()
-
